@@ -1,0 +1,50 @@
+.sidebar {
+	width: 0;
+	background-color: var(--surface-brand);
+	color: var(--text-brand-contrast);
+	overflow: hidden;
+	transition:
+		width 0.3s ease,
+		padding 0.3s ease;
+
+	&.open {
+		width: 300px;
+		padding: var(--grid-gap);
+	}
+
+	// Sidebar Header
+	// .sidebar-header {
+	//     background-color: var(--surface-primary);
+	//     padding: 15px;
+	//     font-size: 1.5em;
+	//     text-align: center;
+	// }
+
+	.item {
+		padding: 16px;
+		cursor: pointer;
+		border-bottom: 1px solid var(--border-brand-contrast);
+
+		&:last-child {
+			border-bottom: 0;
+		}
+
+		&:hover {
+			background-color: var(--surface-brand-hover);
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+	}
+
+	// Sidebar Footer
+	// .sidebar-footer {
+	//     position: absolute;
+	//     bottom: 0;
+	//     width: 100%;
+	//     padding: 10px;
+	//     // background-color: #34495e;
+	// }
+}

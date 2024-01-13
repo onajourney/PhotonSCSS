@@ -1,0 +1,23 @@
+.menu {
+	width: 100%;
+	display: block;
+	background-color: var(--surface-primary);
+
+	a {
+		display: block;
+		color: var(--text-primary);
+		border: 1px solid var(--border-primary);
+		padding: 16px;
+		text-decoration: none;
+
+		&:not(.active):hover {
+			background-color: var(--surface-primary-hover);
+			color: var(--text-primary);
+		}
+	}
+
+	.active {
+		background-color: var(--hover);
+		color: var(--typography-hover);
+	}
+}

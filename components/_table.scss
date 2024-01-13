@@ -1,0 +1,30 @@
+table {
+	width: 100%;
+	border-collapse: collapse;
+	background-color: var(--surface-primary);
+
+	th,
+	td {
+		padding: 10px;
+		border: 1px solid var(--surface-invert);
+	}
+
+	th {
+		background-color: var(--surface-brand);
+		color: var(--text-brand-contrast);
+	}
+
+	tr {
+		td {
+			color: var(--text-primary);
+		}
+
+		&:hover {
+			background-color: var(--surface-primary-hover);
+
+			td {
+				color: var(--text-primary);
+			}
+		}
+	}
+}

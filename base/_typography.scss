@@ -1,0 +1,50 @@
+body {
+	font-family: var(--font-family);
+	font-size: var(--text-size-root);
+	color: var(--text-primary);
+	line-height: var(--text-line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: var(--text-weight-h1-h6);
+	margin: 0;
+}
+
+h1 {
+	font-size: var(--text-size-h1);
+	line-height: var(--text-size-h1);
+}
+
+h2 {
+	font-size: var(--text-size-h2);
+	line-height: var(--text-size-h2);
+}
+
+h3 {
+	font-size: var(--text-size-h3);
+	line-height: var(--text-size-h3);
+}
+
+h4 {
+	font-size: var(--text-size-h4);
+	line-height: var(--text-size-h4);
+	font-weight: 500;
+}
+
+p {
+	font-size: var(--text-size-p);
+}
+
+a {
+	color: var(--text-brand);
+	text-decoration: none;
+
+	&:hover {
+		color: var(--surface-brand-hover);
+	}
+}

@@ -1,0 +1,27 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/variables' as v;
+
+// $sm: f.var(v.$global, '--grid-breakpoints-sm');
+$md: f.var(v.$global, '--grid-breakpoints-md');
+
+.grid {
+	grid-column-gap: var(--grid-gap);
+	grid-row-gap: var(--grid-gap);
+	display: grid;
+	grid-template-columns: 1fr;
+
+	@media (min-width: $md) {
+		grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+	}
+}
+
+.grid-25-75 {
+	grid-column-gap: var(--grid-gap);
+	grid-row-gap: var(--grid-gap);
+	display: grid;
+	grid-template-columns: 25% 75%;
+
+	// @media (nax-width: $md) {
+	//     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+	// }
+}

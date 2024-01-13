@@ -1,0 +1,7 @@
+@use '../abstracts/cache' as c;
+@use '../abstracts/mixins' as m;
+
+[data-theme='light'],
+:root:not([data-theme='dark']) {
+	@include m.theme-generator(c.$light);
+}

@@ -1,0 +1,10 @@
+@mixin theme-generator($theme, $prefix: null) {
+	@each $name, $value in $theme {
+		$new-prefix: if($prefix, $prefix + '-' + $name, $name);
+		@if type-of($value) == map {
+			@include theme-generator($value, $new-prefix);
+		} @else {
+			--#{$new-prefix}: #{inspect($value)};
+		}
+	}
+}

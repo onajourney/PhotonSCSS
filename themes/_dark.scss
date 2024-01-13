@@ -1,0 +1,12 @@
+@use '../abstracts/cache' as c;
+@use '../abstracts/mixins' as m;
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-theme]) {
+		@include m.theme-generator(c.$dark);
+	}
+}
+
+[data-theme='dark'] {
+	@include m.theme-generator(c.$dark);
+}

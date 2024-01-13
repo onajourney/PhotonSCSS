@@ -1,0 +1,33 @@
+input,
+textarea,
+select {
+	width: 100%;
+	padding: 0.5em;
+	margin: 0.5em 0;
+	border: 1px solid var(--border-primary);
+
+	// Modifiers
+	// &.input--primary {
+	//     border-color: var(--border-primary);
+	// }
+
+	// &.input--secondary {
+	//     border-color: $secondary-color;
+	// }
+
+	// States
+	&:focus {
+		border-color: var(--border-brand);
+		outline: none;
+	}
+
+	&:disabled {
+		background-color: var(--disabled);
+		cursor: not-allowed;
+	}
+
+	//     // Responsiveness
+	//     @media (min-width: $breakpoint-md) {
+	//         padding: 0.8em;
+	//     }
+}

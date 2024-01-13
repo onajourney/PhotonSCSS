@@ -1,0 +1,105 @@
+// Primitives
+$colors-DeepSkyBlue: #03a9f4;
+$colors-grey-50: #f1f1f1;
+$colors-grey-200: #d3d3d3;
+$colors-grey-400: #afafaf;
+$colors-grey-600: #7c7c7c;
+$colors-grey-800: #343434;
+$colors-grey-900: #202020;
+
+// Front
+$typography-root: 16px;
+$font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+$font-weight: 300;
+$grid-spacing: 1rem;
+
+// Button
+$button-font-weight: 500;
+$button-padding: 0.75rem 1.5rem;
+
+// Themes
+$global: (
+	font-family: $font-family,
+	brand: $colors-DeepSkyBlue,
+	disabled: $colors-grey-600,
+	button: (
+		font-weight: $button-font-weight,
+		padding: $button-padding
+	),
+	text: (
+		brand: $colors-DeepSkyBlue,
+		brand-contrast: $colors-grey-50,
+		brand-hover: $colors-grey-900,
+		line-height: 1.5,
+		weight-h1-h6: $font-weight,
+		size-root: $typography-root,
+		size-p: 1rem,
+		size-h4: 1rem,
+		size-h3: 1.5rem,
+		size-h2: 2rem,
+		size-h1: 3rem
+	),
+	surface: (
+		brand: $colors-DeepSkyBlue,
+		brand-hover: darken($colors-DeepSkyBlue, 10%)
+	),
+	border: (
+		brand: $colors-DeepSkyBlue,
+		brand-contrast: $colors-grey-50
+	),
+	grid: (
+		gap: $grid-spacing,
+		breakpoints: (
+			xs: 0,
+			sm: 576px,
+			md: 768px,
+			lg: 992px,
+			xl: 1200px
+		)
+	)
+);
+
+$light: (
+	text: (
+		primary: $colors-grey-900,
+		secondary: $colors-grey-800,
+		invert: $colors-grey-50
+	),
+	surface: (
+		primary: $colors-grey-50,
+		secondary: $colors-grey-800,
+		invert: $colors-grey-900,
+		primary-hover: darken($colors-grey-50, 10%)
+	),
+	border: (
+		primary: $colors-grey-900
+	)
+);
+
+$dark: (
+	text: (
+		primary: $colors-grey-50,
+		secondary: $colors-grey-200,
+		invert: $colors-grey-900
+	),
+	surface: (
+		primary: $colors-grey-900,
+		secondary: $colors-grey-400,
+		invert: $colors-grey-50,
+		primary-hover: lighten($colors-grey-800, 10%)
+	),
+	border: (
+		primary: $colors-grey-50
+	)
+);
+
+// Possible struture for multi theme support
+// $default: (
+//     'light': $light,
+//     'dark': $dark
+// )
+//
+// $brutalism: (
+//     'light': $brutalism-light,
+//     'dark': $brutalism-dark
+// )

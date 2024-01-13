@@ -1,0 +1,8 @@
+@use 'functions' as f;
+@use 'variables' as v;
+
+$_optimized: f.optimize(v.$global, v.$light, v.$dark);
+
+$global: map-get($_optimized, global);
+$light: map-get($_optimized, light);
+$dark: map-get($_optimized, dark);

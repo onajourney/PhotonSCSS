@@ -1,0 +1,85 @@
+@use 'sass:map';
+@use 'sass:string';
+
+@function var($map, $str) {
+	$sliced: string.slice($str, 3, -1);
+	$keys: string.split($sliced, '-', $limit: null);
+	$value: map.get($map, $keys...);
+
+	@if $value == null {
+		@error "Value `#{$keys}` not found.";
+	}
+
+	@return $value;
+}
+
+@function optimize($global-map, $light-map: (), $dark-map: ()) {
+	// Initializing new theme maps
+	$new-global: ();
+	$new-light: if(type-of($light-map) != map, (), $light-map);
+	$new-dark: if(type-of($dark-map) != map, (), $dark-map);
+
+	@each $key, $value in $global-map {
+		$light-value: if($light-map != null, map-get($light-map, $key), null);
+		$dark-value: if($dark-map != null, map-get($dark-map, $key), null);
+
+		// If the value is a map, it's a nested property.
+		@if type-of($value) == map {
+			$new-values: optimize($value, $light-value, $dark-value);
+
+			// Only merge the results of nested optimization back to the main maps if they're not empty
+			@if length(map-get($new-values, global)) > 0 {
+				$new-global: map-merge(
+					$new-global,
+					(
+						$key: map-get($new-values, global)
+					)
+				);
+			}
+			@if length(map-get($new-values, light)) > 0 {
+				$new-light: map-merge(
+					$new-light,
+					(
+						$key: map-get($new-values, light)
+					)
+				);
+			}
+			@if length(map-get($new-values, dark)) > 0 {
+				$new-dark: map-merge(
+					$new-dark,
+					(
+						$key: map-get($new-values, dark)
+					)
+				);
+			}
+		} @else if ($light-value and not $dark-value or not $light-value and $dark-value) {
+			// If there's an override in one theme but not the other, move the global value to the theme missing the override.
+			@if $light-value {
+				$new-dark: map-merge(
+					$new-dark,
+					(
+						$key: $value
+					)
+				);
+			} @else {
+				$new-light: map-merge(
+					$new-light,
+					(
+						$key: $value
+					)
+				);
+			}
+			$new-global: map-remove($new-global, $key);
+		} @else {
+			// If there's no theme override for this property, retain it in the global theme.
+			$new-global: map-merge(
+				$new-global,
+				(
+					$key: $value
+				)
+			);
+		}
+	}
+
+	@return (global: $new-global, light: $new-light, dark: $new-dark);
+}

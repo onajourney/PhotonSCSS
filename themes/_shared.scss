@@ -1,0 +1,6 @@
+@use '../abstracts/cache' as c;
+@use '../abstracts/mixins' as m;
+
+:root {
+	@include m.theme-generator(c.$global);
+}

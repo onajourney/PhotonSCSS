@@ -1,0 +1,38 @@
+@use '../abstracts/functions' as f;
+@use '../abstracts/variables' as v;
+
+$xs: f.var(v.$global, '--grid-breakpoints-xs');
+$sm: f.var(v.$global, '--grid-breakpoints-sm');
+$md: f.var(v.$global, '--grid-breakpoints-md');
+$lg: f.var(v.$global, '--grid-breakpoints-lg');
+$xl: f.var(v.$global, '--grid-breakpoints-xl');
+
+$inset: 64px;
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 16px;
+
+	// Small devices (landscape phones)
+	@media (min-width: $sm) {
+		max-width: $sm - $inset;
+		padding-right: 0;
+		padding-left: 0;
+	}
+
+	// Medium devices (tablets)
+	@media (min-width: $md) {
+		max-width: $md - $inset;
+	}
+
+	// Large devices (desktops)
+	@media (min-width: $lg) {
+		max-width: $lg - $inset;
+	}
+
+	// Extra large devices (large desktops)
+	@media (min-width: $xl) {
+		max-width: $xl - $inset;
+	}
+}
