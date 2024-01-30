@@ -16,7 +16,7 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: `https://${organizationOrUser}.example.com`,
+  url: `https://${organizationOrUser}.github.io/`,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: `/${projectName}/`,
@@ -71,8 +71,8 @@ const config = {
       navbar: {
         // title: 'My Site',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Photon SCSS Logo',
+          src: 'img/logo.png',
         },
         items: [
           {
@@ -89,18 +89,8 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
-        links: [
-          // {
-          //   title: 'Docs',
-          //   items: [
-          //     {
-          //       label: 'Tutorial',
-          //       to: '/docs/intro',
-          //     },
-          //   ],
-          // },
-        ],
+        style: 'light',
+        links: [],
         copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
       },
       prism: {

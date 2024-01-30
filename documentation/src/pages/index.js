@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            FS Terraform Tutorial - 5min ⏱️
+            Photon SCSS Tutorial - 5min ⏱️
           </Link>
         </div>
       </div>
